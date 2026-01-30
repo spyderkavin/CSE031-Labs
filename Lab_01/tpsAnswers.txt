@@ -1,0 +1,20 @@
+TPS 1
+
+Kavinkumar Sainathan
+Samhita Narnapur
+Julian Sun
+
+www.bing.com/search?q=how+to+use+linux+in+powershell&form=OPRTSD&pc=OPER
+https://www.geeksforgeeks.org/linux-unix/linux-tutorial/
+https://www.bing.com/search?q=linux+install+tutorial&form=OPRTSD&pc=OPER
+
+TPS 2
+
+1 Click "Ctrl+`"
+1a yes
+1b to run multiple programs at the same time
+2 type ls
+3 type cd
+4 mkdir CSE031
+
+TPS 3
