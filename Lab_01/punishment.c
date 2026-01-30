@@ -14,6 +14,7 @@ int main() {
         printf("You entered an invalid value for the typo placement! Please re-enter: ");
         while (getchar() != '\n');
     }
+    
 
     printf("\n");
 

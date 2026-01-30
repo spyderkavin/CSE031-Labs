@@ -9,7 +9,6 @@ https://www.geeksforgeeks.org/linux-unix/linux-tutorial/
 https://www.bing.com/search?q=linux+install+tutorial&form=OPRTSD&pc=OPER
 
 TPS 2
-
 1 Click "Ctrl+`"
 1a yes
 1b to run multiple programs at the same time
@@ -18,3 +17,15 @@ TPS 2
 4 mkdir CSE031
 
 TPS 3
+1
+https://stackoverflow.com/questions/76731867/how-to-use-powershell-in-vscode-to-implement-gcc-build-c-source-file-on-window
+https://terminalroot.com/how-to-install-gcc-gpp-mingw-on-windows/
+2
+3 gcc -o main main.c
+4 run the program using ./main
+5 -c is the compiler
+6 -g is the debugger
+7 Use Rename-Item in powershell
+
+
+

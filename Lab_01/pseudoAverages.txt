@@ -1,0 +1,13 @@
+Enter what numbers to use
+Create two lists for even and odd
+Create loop with length of number of values
+If that number is greater than 9 then it will iterate through the digits and add them together
+If not then just add number to specific array
+If the number is 0 or less than 0 then there’s an error
+If number is divisible by 2 then put into even list if not then odd
+Find average for both lists
+Return
+
+Given help to Samhita Narnapur and Julian Sun
+Gotten help from Samhita Narnapur and Julian Sun
+Collaborated with and worked together with Samhita Narnapur and Julian Sun
