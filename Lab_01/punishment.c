@@ -8,7 +8,7 @@ int main() {
     // Validate that input is a positive integer and clear buffer if invalid
     while (scanf("%d", &repetitions) != 1 || repetitions <= 0) {
         printf("You entered an invalid value for the repetition count! Please re-enter: ");
-        while (getchar() != '\n'); 
+        ///while (getchar() != '\n'); 
     }
 
     // Prompt the user for which specific line should contain the typo
@@ -16,7 +16,7 @@ int main() {
     // Validate that the typo line is within the range of total repetitions
     while (scanf("%d", &typoLine) != 1 || typoLine <= 0 || typoLine > repetitions) {
         printf("You entered an invalid value for the typo placement! Please re-enter: ");
-        while (getchar() != '\n');
+        ///while (getchar() != '\n');
     }
     
     printf("\n");

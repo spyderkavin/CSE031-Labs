@@ -6,11 +6,22 @@ int main() {
     int count_even = 0;
     int sum_odd = 0; 
     int count_odd = 0;
+    int counter = 1;
 
     // Start an infinite loop to collect numbers until the sentinel value is entered
     while (1) {
-        printf("enter a number type 0 to stop: ");
-        scanf("%d", &num);
+
+        // Determine the correct ordinal suffix (st, nd, rd, or th)
+        char *suffix = "th";
+        if (counter % 10 == 1 && counter % 100 != 11) suffix = "st";
+        else if (counter % 10 == 2 && counter % 100 != 12) suffix = "nd";
+        else if (counter % 10 == 3 && counter % 100 != 13) suffix = "rd";
+
+        printf("Enter the %d%s value, type in 0 to end the code: ", counter, suffix);
+        if (scanf("%d", &num) != 1) break;
+
+        // Increment the counter for the next prompt
+        counter++;
 
         // Terminate the loop if the user enters 0
         if (num == 0) break; 
