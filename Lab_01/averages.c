@@ -54,12 +54,12 @@ int main() {
     // Check if any numbers with an even digit sum were processed to avoid division by zero
     if (count_even > 0)
         // Cast the sum to a float to ensure the division produces a decimal result
-        printf("avg_even: %.2f\n", (float)sum_even / count_even);
+        printf("Average of input values whose digits sum up to an even number:: %.2f\n", (float)sum_even / count_even);
     
     // Check if any numbers with an odd digit sum were processed
     if (count_odd > 0)
         // Print the average of numbers that had an odd digit sum
-        printf("avg_odd: %.2f\n", (float)sum_odd / count_odd);
+        printf("Average of input values whose digits sum up to an odd number:: %.2f\n", (float)sum_odd / count_odd);
 
     return 0;
 }
