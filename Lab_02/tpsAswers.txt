@@ -1,0 +1,40 @@
+TPS 1:
+
+Samhita Narapur
+
+TPS 2:
+
+You use clang "-g punishment.c -o punishment"
+
+You use lldb "./punishment"
+
+You use "run"
+
+A breakpoint is a point at where the code stops momentarily so that programmers can view the code and debug at a specific point
+You use "breakpoint set --file punishment.c --line 30"
+
+You user "next"
+
+You use "print"
+
+You use "continue"
+
+You use "quit"
+
+TPS 3:
+
+5 variables are declared and 2 of them are pointers (*px, *py)
+
+You will get a null value as the variables are undefined
+
+You can fix the variables by initializing them.
+
+Completed
+
+Completed
+
+Completed
+
+Completed
+
+Yes because the address of arr is being printed out which is the same as outputting the address of the initial value of arr
