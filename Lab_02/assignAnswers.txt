@@ -1,0 +1,16 @@
+Assignmennt 1
+1. What is the bug here?
+The sum used to compute the average in main was incorrect because read_values received sum by value (a copy), so updates inside read_values did not update main's sum.
+
+2. How do you fix it?
+Pass sum by pointer. Change read_values(double sum) to read_values(double *sum), update writes to *sum inside the function, and call it as read_values(&sum) from main. Also ensure scanf uses &input when reading integers.
+
+Assignment 2
+1. Run the program with input str1="HELLO!" and str2="hello!". Is the output expected?
+Yes. The output is HELLO!hello!, which matches the expected append result.
+
+2. Without stopping, enter str1="HI!" and str2="hi!". Is the output expected? What is the bug? How do you fix it?
+Before fixing, the output is not reliable because append had a null-terminator bug ("\0" used as a string literal/pointer instead of a character terminator). The fix is to set the terminator as a character after the loop: s1[s1len + s2len] = '\0';.
+
+3. Without stopping, enter str1="Hello! How are you?" and str2="I am fine, thank you!". Is the output expected? Why?
+No. This happens because str1 and str2 are only 10 bytes each, so those long inputs overflow the buffers and cause undefined behavior (corrupted output/possible crash).
