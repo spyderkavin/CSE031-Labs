@@ -1,4 +1,3 @@
-brian@BSU:~/cse-31/labs/lab02$ cat arrCopy.c
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
