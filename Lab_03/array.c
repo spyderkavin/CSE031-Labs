@@ -10,24 +10,31 @@ int* bubbleSort(int arr[], int n) {
         s_arr[i] = arr[i];
 
     // Sorting using array notations
-	// Comment this when implementing pointer version.
-    for (i = 0; i < n - 1; i++) {
-        for(j = 0; j < n - 1; j++) {
-            if(s_arr[j] > s_arr[j + 1]) {
-                temp = s_arr[j + 1];
-                s_arr[j + 1] = s_arr[j];
-                s_arr[j] = temp;
-            }
-        }
-    }
+    // Comment this when implementing pointer version.
+    // for (i = 0; i < n - 1; i++) {
+    //     for(j = 0; j < n - 1; j++) {
+    //         if(s_arr[j] > s_arr[j + 1]) {
+    //             temp = s_arr[j + 1];
+    //             s_arr[j + 1] = s_arr[j];
+    //             s_arr[j] = temp;
+    //         }
+    //     }
+    // }
 
     // Sorting using pointer notations. i.e. you cannot use "[]"!
     // Your code goes here...
 
-
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1; j++) {
+            if (*(s_arr + j) > *(s_arr + j + 1)) {
+                temp = *(s_arr + j + 1);
+                *(s_arr + j + 1) = *(s_arr + j);
+                *(s_arr + j) = temp;
+            }
+        }
+    }
 
     return s_arr;
-
 }
 
 void printArray(int arr[], int n) {
@@ -39,12 +46,25 @@ void printArray(int arr[], int n) {
 }
 
 int bSearch(int *arr, int a, int b, int key) {
-    // Binary search function. arr is the array, key is the value to search for, a and b are the boundaries of arr to be searched within.
+    // Binary search function. arr is the array, key is the value
     // You must use pointer notations. i.e. no "[]"
     // Your code goes here:
 
+    int middle = (a + b) / 2;
 
-	return 0; // Modify this to return an appropriate value!
+    if (a > b) {
+        return -1;
+    }
+
+    if (*(arr + middle) == key) {
+        return middle;
+    } else if (*(arr + middle) > key) {
+        return bSearch(arr, a, middle - 1, key);
+    } else {
+        return bSearch(arr, middle + 1, b, key);
+    }
+
+    return 0; // Modify this to return an appropriate value!
 }
 
 int main() {
