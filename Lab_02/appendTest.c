@@ -11,14 +11,14 @@
 * type. You may, however, modify the body of the function if you wish.
 */
 char* append(char s1[], char s2[]) {
-int s1len = strlen(s1);
-int s2len = strlen(s2);
-int k;
-for (k = 0; k < s2len; k++) {
-s1[k + s1len] = s2[k];
-}
-s1[s1len + s2len] = '\0';
-return s1;
+    int s1len = strlen(s1);
+    int s2len = strlen(s2);
+    int k;
+    for (k = 0; k < s2len; k++) {
+        s1[k + s1len] = s2[k];
+    }
+    s1[s1len + s2len] = '\0';
+    return s1;
 }
 /*
 * DO NOT MODIFY unless when you run this, your code fails to grab input with
