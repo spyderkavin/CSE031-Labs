@@ -1,0 +1,16 @@
+Did with Samhita Narnapur
+
+TPS 1:
+1. The three pools of memory are stack, heap, and static memory
+2a. There are 3 variables declaired
+2b. There are 2 pointers. ptr is a pointer to an int and handle is pointer to a pointer to an int
+2c. The variables are stored in stack memory
+2d. ptr will point to heap
+3. Done
+4. Done
+
+TPS 2:
+1. The program creates struct called Node containing an int, float, and pointer to the next node.
+2. Done
+3. Structures are stored sequentially so the structures and variables are initialized and stored right after each other.
+    The head stores the first value to the entire struct so the pointer points to the heads memory address to access the entire struct
