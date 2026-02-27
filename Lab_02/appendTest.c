@@ -28,10 +28,12 @@ them
 * to fix this problem.
 */
 int main() {
-char str1[10];
-char str2[10];
-while (1) {
-printf("str1 = ");
-scanf("%[^\n]%*c", str1);
-// if (!gets(str1)) return 0;
-printf("str2 = ");
+    char str1[10];
+    char str2[10];
+    while (1) {
+        printf("str1 = ");
+        scanf("%[^\n]%*c", str1);
+        // if (!gets(str1)) return 0;
+        printf("str2 = ");
+    }
+}
