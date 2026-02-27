@@ -18,19 +18,19 @@ char *str3 = "Contents of new array containing odd elements from original: ";
 * type.
 */
 void printArr(int *a, int size, char *prompt){
-int i;
-printf("%s", prompt);
-if (size == 0) {
-printf("empty\n");
-return;
-}
-for (i = 0; i < size; i++) {
-printf("%d", *(a + i));
-if (i < size - 1) {
-printf(" ");
-}
-}
-printf("\n");
+    int i;
+    printf("%s", prompt);
+    if (size == 0) {
+        printf("empty\n");
+        return;
+    }
+    for (i = 0; i < size; i++) {
+            printf("%d", *(a + i));
+        if (i < size - 1) {
+            printf(" ");
+        }
+    }
+    printf("\n");
 }
 /*
 * DO NOT change the definition of the arrCopy function when it comes to
@@ -38,47 +38,47 @@ printf("\n");
 * type.
 */
 void arrCopy(){
-int i;
-int e = 0;
-int o = 0;
-for (i = 0; i < size; i++) {
-if ((*(arr + i) % 2) == 0) {
-*(arr_even + e) = *(arr + i);
-e++;
-} else {
-*(arr_odd + o) = *(arr + i);
-o++;
-}
-}
+    int i;
+    int e = 0;
+    int o = 0;
+    for (i = 0; i < size; i++) {
+        if ((*(arr + i) % 2) == 0) {
+            *(arr_even + e) = *(arr + i);
+            e++;
+        } else {
+            *(arr_odd + o) = *(arr + i);
+        o++;
+        }
+    }
 }
 int main(){
-int i;
-printf("Enter the size of array you wish to create: ");
-scanf("%d", &size);
-// Dynamically allocate memory for arr (of appropriate size)
-arr = malloc(size * sizeof(int));
-// Ask user to input content of arr and compute evenCount and oddCount
-for (i = 0; i < size; i++) {
-printf("Enter array element #%d: ", i + 1);
-scanf("%d", (arr + i));
-if ((*(arr + i) % 2) == 0) {
-evenCount++;
-} else {
-oddCount++;
-}
-}
-// Dynamically allocate memory for arr_even and arr_odd (of appropriate size)
-arr_even = malloc(evenCount * sizeof(int));
-arr_odd = malloc(oddCount * sizeof(int));
-/*************** YOU MUST NOT MAKE CHANGES BEYOND THIS LINE! ***********/
-// Print original array
-printArr(arr, size, str1);
-/// Copy even elements of arr into arr_even and odd elements into arr_odd
-arrCopy();
-// Print new array containing even elements from arr
-printArr(arr_even, evenCount, str2);
-// Print new array containing odd elements from arr
-printArr(arr_odd, oddCount, str3);
-printf("\n");
-return 0;
+    int i;
+    printf("Enter the size of array you wish to create: ");
+    scanf("%d", &size);
+    // Dynamically allocate memory for arr (of appropriate size)
+    arr = malloc(size * sizeof(int));
+    // Ask user to input content of arr and compute evenCount and oddCount
+    for (i = 0; i < size; i++) {
+        printf("Enter array element #%d: ", i + 1);
+        scanf("%d", (arr + i));
+        if ((*(arr + i) % 2) == 0) {
+            
+        } else {
+            oddCount++;
+        }
+    }
+    // Dynamically allocate memory for arr_even and arr_odd (of appropriate size)
+    arr_even = malloc(evenCount * sizeof(int));
+    arr_odd = malloc(oddCount * sizeof(int));
+    /*************** YOU MUST NOT MAKE CHANGES BEYOND THIS LINE! ***********/
+    // Print original array
+    printArr(arr, size, str1);
+    /// Copy even elements of arr into arr_even and odd elements into arr_odd
+    arrCopy();
+    // Print new array containing even elements from arr
+    printArr(arr_even, evenCount, str2);
+    // Print new array containing odd elements from arr
+    printArr(arr_odd, oddCount, str3);
+    printf("\n");
+    return 0;
 }
