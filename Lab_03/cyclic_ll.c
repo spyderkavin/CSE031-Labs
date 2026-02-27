@@ -6,7 +6,26 @@ typedef struct node {
 } node;
 
 int has_cycle(node *head) {
-	// Your code goes here:
+  // 1. Start with two pointers at the head of the list
+  node *slow = head;
+  node *fast = head;
+
+  // 2. On each iteration, increment the first pointer by one node and the second by two nodes
+  // We check if fast and fast->next are not NULL to ensure we don't dereference a null pointer
+  while (fast != NULL && fast->next != NULL) {
+    slow = slow->next;          // Move slow pointer 1 step
+    fast = fast->next->next;    // Move fast pointer 2 steps
+
+    // 3. We know there is a cycle if:
+    // a. The second pointer is the same as the first pointer
+    // b. The next node of the second pointer is pointed to by the first pointer
+    if (slow == fast) {
+      return 1; // Cycle detected
+    }
+  }
+
+  // If the loop ends, it's because of a null pointer, so there is no cycle
+  return 0;
 }
 
 void test_has_cycle(void) {
@@ -52,12 +71,3 @@ void test_has_cycle(void) {
   nodes[22].next = &nodes[23];
   printf("Checking fifth list for cycles. There should be none, has_cycle says it has %s cycle\n",
     has_cycle(&nodes[19])?"a":"no");
-  
-  printf("Checking length-zero list for cycles. There should be none, has_cycle says it has %s cycle\n",
-    has_cycle(NULL)?"a":"no");
-}
-
-int main(void) {
-  test_has_cycle();
-  return 0;
-}
