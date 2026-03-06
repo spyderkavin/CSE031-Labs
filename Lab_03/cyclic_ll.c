@@ -5,51 +5,41 @@ typedef struct node {
   struct node *next;
 } node;
 
-/**
- * Checks if a singly-linked list has a cycle using Floyd's 
- * Cycle-Finding Algorithm (Tortoise and the Hare).
- */
 int has_cycle(node *head) {
-  // 1. Start with two pointers at the head of the list
-  node *slow = head;
-  node *fast = head;
+	// Your code goes here:
 
-  // 2. On each iteration, increment the first pointer by one node 
-  // and the second by two nodes. If we hit a NULL, there is no cycle.
-  while (fast != NULL && fast->next != NULL) {
-    slow = slow->next;          // Increment first pointer by one (Tortoise)
-    fast = fast->next->next;    // Increment second pointer by two (Hare)
-
-    // 3. We know there is a cycle if:
-    // a. The second pointer is the same as the first pointer
-    // b. The next node of the second pointer is pointed to by the first pointer
-    if (fast == slow || (fast != NULL && fast->next == slow)) {
-      return 1; // Cycle detected
+  if (head == NULL) {
+        return 0;
     }
-  }
 
-  // If the loop ends, it's because of a null pointer, so there is no cycle
-  return 0;
+    node *firstPointer = head;
+    node *secondPointer = head;
+
+    while (secondPointer != NULL && secondPointer->next != NULL && secondPointer->next->next != NULL) {
+        firstPointer = firstPointer->next;
+        secondPointer = secondPointer->next->next;
+        if (firstPointer == secondPointer || (secondPointer != NULL && secondPointer->next == firstPointer)) {
+            return 1;
+        }
+    }
+
+    return 0;
+
 }
-
-
 
 void test_has_cycle(void) {
   int i;
-  node nodes[25]; // enough to run our tests
+  node nodes[25]; //enough to run our tests
   for(i=0; i < sizeof(nodes)/sizeof(node); i++) {
-    nodes[i].next = NULL;
+    nodes[i].next = 0;
     nodes[i].value = 0;
   }
-
-  // Test 1: Linear list (No cycle)
   nodes[0].next = &nodes[1];
   nodes[1].next = &nodes[2];
   nodes[2].next = &nodes[3];
   printf("Checking first list for cycles. There should be none, has_cycle says it has %s cycle\n",
-    has_cycle(&nodes[0]) ? "a" : "no");
+    has_cycle(&nodes[0])?"a":"no");
   
-  // Test 2: Circular list (Full cycle)
   nodes[4].next = &nodes[5];
   nodes[5].next = &nodes[6];
   nodes[6].next = &nodes[7];
@@ -58,9 +48,8 @@ void test_has_cycle(void) {
   nodes[9].next = &nodes[10];
   nodes[10].next = &nodes[4];
   printf("Checking second list for cycles. There should be a cycle, has_cycle says it has %s cycle\n",
-    has_cycle(&nodes[4]) ? "a" : "no");
+    has_cycle(&nodes[4])?"a":"no");
   
-  // Test 3: List with a "tail" leading into a cycle
   nodes[11].next = &nodes[12];
   nodes[12].next = &nodes[13];
   nodes[13].next = &nodes[14];
@@ -69,23 +58,24 @@ void test_has_cycle(void) {
   nodes[16].next = &nodes[17];
   nodes[17].next = &nodes[14];
   printf("Checking third list for cycles. There should be a cycle, has_cycle says it has %s cycle\n",
-    has_cycle(&nodes[11]) ? "a" : "no");
+    has_cycle(&nodes[11])?"a":"no");
   
-  // Test 4: Self-loop (Cycle of 1)
   nodes[18].next = &nodes[18];
   printf("Checking fourth list for cycles. There should be a cycle, has_cycle says it has %s cycle\n",
-    has_cycle(&nodes[18]) ? "a" : "no");
+    has_cycle(&nodes[18])?"a":"no");
   
-  // Test 5: Another linear list
   nodes[19].next = &nodes[20];
   nodes[20].next = &nodes[21];
   nodes[21].next = &nodes[22];
   nodes[22].next = &nodes[23];
-  printf("Checking fifth list for cycles. There should be none, has_cycle says it has %s cycle\n", 
-    has_cycle(&nodes[19]) ? "a" : "no");
+  printf("Checking fifth list for cycles. There should be none, has_cycle says it has %s cycle\n",
+    has_cycle(&nodes[19])?"a":"no");
+  
+  printf("Checking length-zero list for cycles. There should be none, has_cycle says it has %s cycle\n",
+    has_cycle(NULL)?"a":"no");
 }
 
-int main() {
+int main(void) {
   test_has_cycle();
   return 0;
 }
