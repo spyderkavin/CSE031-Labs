@@ -17,5 +17,16 @@ int main() {
     
     // Add your code for the exercises here:
 	
+	printf("four_ints[0] at end: %x\n", four_ints[0]); //#3
+	printf("four_ints[1] in hex: %x\n", four_ints[1]); //#4
+	printf("\nfour_ints:\n"); //#6
+	for(i=0;i<4;i++){
+		printf("Address: %p, Hex value: %x\n", (void*)&four_ints[i], four_ints[i]);
+	}
+	printf("\nfour_c:\n"”); //#8
+	for(i=0;i<4;i++){
+		printf("Address: %p, Hex value: %x\n", (void*)&four_c[i], four_c[i]);
+	}
+
 	return 0;
 }
