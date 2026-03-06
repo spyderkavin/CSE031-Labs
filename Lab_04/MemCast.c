@@ -23,7 +23,7 @@ int main() {
 	for(i=0;i<4;i++){
 		printf("Address: %p, Hex value: %x\n", (void*)&four_ints[i], four_ints[i]);
 	}
-	printf("\nfour_c:\n"”); //#8
+	printf("\nfour_c:\n"); //#8
 	for(i=0;i<4;i++){
 		printf("Address: %p, Hex value: %x\n", (void*)&four_c[i], four_c[i]);
 	}
