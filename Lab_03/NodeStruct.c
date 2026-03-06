@@ -14,7 +14,12 @@ int main() {
     head->fValue = 3.14;
 	
 	// Insert code here
-	
+	printf("%d\n", head->iValue);
+    printf("%f\n", head->fValue);
+    printf("%p\n", head);
+    printf("%p\n", &head->iValue);
+    printf("%p\n", &head->fValue);
+    printf("%p\n", head->next);
 	
 	return 0;
 }
