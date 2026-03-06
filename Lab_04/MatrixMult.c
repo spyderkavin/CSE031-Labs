@@ -64,7 +64,5 @@ int main() {
     // (6) Call printArray to print out resulting array here.
     printf("Resulting Matrix C:\n");
     printArray(matC, n);
-
-    // Note: In a full program, you should free() the allocated memory here.
     return 0;
 }
