@@ -1,0 +1,22 @@
+TPS 1:
+1. I expect the program to print 2 
+2. Before changing the code, I expect the program to print 44434241
+3. Completed
+4. It prints 44434241. I am not surprised by the results.
+5a. One array was allocated in this program (four_ints).
+5b. They are pointing to the same location because line 13 makes both of the pointers point to the same starting memory address. 
+5c. Completed
+6. The difference in addresses between two consecutive elements is 4 bytes. This difference is the size of a standard integer. 
+7. Completed
+8. The difference in addresses between two consecutive elements is 1 byte. This difference is the size of a character.
+9. Completed
+10. I observed that the memory address is incremented by the size of the pointers data type in terms of how C accesses memory when the index of an array is incremented.
+
+TPS 2:
+1. Line #8 allocates an array of pointers to integers.
+2. We access the ith value of the array by using pointer notation, for example, you would use *(arr+i).
+3. You access arr[i][j] in pointer notation by doing *(*(arr+i)+j).
+4. We need to pass the size as an argument because in C, pointers don’t store metadata about the size of the memory block they point to.
+5. Completed
+6. Completed
+7. Completed
