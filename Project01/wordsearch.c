@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-// Manual case conversion to satisfy constraint [cite: 21]
+// Manual case conversion to satisfy constraint 
 char toUpper(char c) {
     if (c >= 'a' && c <= 'z') {
         return c - 32;
@@ -70,41 +70,56 @@ char toUpper(char c) {
     return c;
 }
 
-// Recursive helper to find word path and handle backtracking [cite: 23, 132]
+// Recursive helper to find word path and handle backtracking 
 int checkWord(char** arr, char* word, int r, int c, int index, int** path) {
-    // Base Case: Word completed
-    if (*(word + index) == '\0') {
+    
+    
+    if (*(word + index) == '\0') { //current chaarcter is word null terminatr
         return 1;
     }
 
-    // Boundary and character match check using pointer arithmetic 
-    if (r < 0 || r >= bSize || c < 0 || c >= bSize || 
-        toUpper(*(*(arr + r) + c)) != toUpper(*(word + index))) {
+    
+    if (r < 0 || r >= bSize || c < 0 || c >= bSize) { //within grid lims
         return 0;
     }
 
-    // Save current path state
-    int currentVal = *(*(path + r) + c);
-    
-    // Logic to store path sequence (e.g., 642 for multiple visits) [cite: 133]
-    int power = 1;
-    int temp = index + 1;
-    while (temp > 0) { power *= 10; temp /= 10; }
-    *(*(path + r) + c) = (currentVal * power) + (index + 1);
+    // comapre arr[r][c] to word letter
+    if (toUpper(*(*(arr + r) + c)) != toUpper(*(word + index))) {
+        return 0;
+    }
 
-    // Search all 8 directions 
+    //store path value to backtark if needed 
+    int currentPathVal = *(*(path + r) + c);
+
+    //Update the path array with the current letter's position.
+    
+    int power = 1;
+    int tempIndex = index + 1; //1st is 1
+    while (tempIndex > 0) { 
+        power *= 10; 
+        tempIndex /= 10; 
+    }
+    *(*(path + r) + c) = (currentPathVal * power) + (index + 1);
+
+    //Check all 8 directions (neighbors) i and j  from -1 to 1 to cover both side
     for (int i = -1; i <= 1; i++) {
         for (int j = -1; j <= 1; j++) {
+            // Skip the case where i=0 and j=0 (which is the current cell itself).
             if (i == 0 && j == 0) continue;
+
+            // Recursively call checkWord for the next letter (index + 1) & check around
+            
             if (checkWord(arr, word, r + i, c + j, index + 1, path)) {
-                return 1;
+                return 1;  //found = 1
             }
         }
     }
 
-    // Backtrack if path fails
-    *(*(path + r) + c) = currentVal;
-    return 0;
+    // BACKTRACKING: If none of the 8 directions resulted in finding the word,
+    // reset this cell's path value to what it was before we modified it. [cite: 132]
+    *(*(path + r) + c) = currentPathVal;
+
+    return 0; // Word not found starting from this specific path.
 }
 
 void printPuzzle(char** arr) {
@@ -118,37 +133,52 @@ void printPuzzle(char** arr) {
 }
 
 void searchPuzzle(char** arr, char* word) {
-    // Allocate and initialize path array to 0 [cite: 23]
+
+    // We create a 2-D integer array to store the "found".
     int **path = (int**)malloc(bSize * sizeof(int*));
     for (int i = 0; i < bSize; i++) {
+        // calloc initializes every cell to 0, which represents "not part of the path".
         *(path + i) = (int*)calloc(bSize, sizeof(int));
     }
 
-    int found = 0;
+    int found = 0; // t/f
+
+    
+    // We must check every single cell (i, j) in the grid because any cell could be the starting letter of the word.
     for (int i = 0; i < bSize; i++) {
         for (int j = 0; j < bSize; j++) {
+            
+            
+            // For every cell, we call checkword start at 0
+            
             if (checkWord(arr, word, i, j, 0, path)) {
-                found = 1;
-                break;
+                found = 1; // Mark as found if the recursion returns true.
+                break;     // Stop searching the current row.
             }
         }
-        if (found) break;
+        if (found) break; // if the word is found stop searching.
     }
 
+    // output formating match the sample runs in wording and case.
     if (found) {
-        printf("Word found!\n"); // Exactly matching output [cite: 22]
+        printf("Word found!\n");
         printf("Printing the search path:\n");
+
+        // Nested loops to print the path grid.
         for (int i = 0; i < bSize; i++) {
             for (int j = 0; j < bSize; j++) {
+                // %-8d ensures each number has space around it, keeping columns aligned to access path[i][j].
                 printf("%-8d", *(*(path + i) + j));
             }
-            printf("\n");
+            printf("\n"); // Newline at the end of each row.
         }
     } else {
-        printf("Word not found!\n"); // Exactly matching output [cite: 22]
+        printf("Word not found!\n");
     }
 
-    // Free path memory
-    for (int i = 0; i < bSize; i++) free(*(path + i));
+    //prevent memory leeks
+    for (int i = 0; i < bSize; i++) {
+        free(*(path + i));
+    }
     free(path);
 }
