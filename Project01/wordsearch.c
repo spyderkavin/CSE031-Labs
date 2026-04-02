@@ -70,7 +70,7 @@ char toUpper(char c) {
     return c;
 }
 
-// Recursive helper to find word path and handle backtracking 
+// word path ad reveress
 int checkWord(char** arr, char* word, int r, int c, int index, int** path) {
     
     
