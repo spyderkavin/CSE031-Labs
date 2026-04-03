@@ -1,0 +1,24 @@
+TPS 1:
+1.  MIPS Assembler and Runtime Simulator
+2.  Done
+3.  Done
+4.  Done
+5a. Use the menubar file then open and then upload the assembly file you want.
+5b. Press the assemble program icon
+5c. Click the run button
+5d. No
+5e. Click the run step at a time button.
+5f. Use the reset MIPS data button
+6.  Done
+
+TPS 2:
+1.  .data: where variable declarations and data storage are
+.word: reserves 32 bits of space for an int value
+.text: where the code is written
+2.  fib: beq $t3, $0, finish
+3.  j fib
+4.  Click “execute” tab and scroll down to line 15 and click the bkpt checkbox
+5.  Click the run step at a time button
+6.  Double click for the value for a specific register and type in a new value
+7.  0x10010000
+8.  Syscall calls system services. Line 19 prints an integer, Line 21 exits the program.
