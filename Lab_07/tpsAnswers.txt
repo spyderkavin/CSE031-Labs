@@ -1,0 +1,19 @@
+TPS 1
+1. Procedures: Instructions performing a task without returning a value. Functions: Tasks that return a value to the caller. Methods: Functions associated with objects/classes[cite: 13].
+2. N/A (Reading task) [cite: 14-16].
+3. See proc1.c above[cite: 18].
+4. SUM is at the instruction "add $v0, $a0, $a1". It performs the addition of inputs.
+5. No, 'j' is fixed. 'jr $ra' allows returning to multiple call sites[cite: 23].
+6. Saved at 'addi $ra, $zero, 0'[cite: 25]. Saved in $ra[cite: 26]. Value is the instruction address after j SUM.
+7. Error occurs because $ra was manually set to an incorrect value (0)[cite: 29].
+8. The address is 0x00400018[cite: 30].
+11. Use the 'jal' (Jump and Link) instruction[cite: 38].
+12. (Applied to proc1.s code above) [cite: 39-40].
+
+TPS 2
+1. Output is 38[cite: 49].
+2. N/A (Study task)[cite: 53].
+3. SUM knows where to return via $ra[cite: 54]. After calling SUB, $ra is overwritten[cite: 55]. Fix: Save $ra to the stack[cite: 56].
+4. Fix: Save the original $a0 to the stack before calling the next function[cite: 62].
+5. $s0 is overwritten[cite: 63]. Yes, it's a problem because $s registers must be preserved[cite: 64].
+6. (Applied to proc2.s code above) [cite: 67].
